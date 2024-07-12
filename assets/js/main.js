@@ -281,110 +281,114 @@ var adUnits = [
                 }
             }
         ]
+    },
+    {
+        code: 'ad-div-160x600',
+        mediaTypes: {
+            banner: {
+                sizes: [[160, 600]]
+            }
+        },
+        bids: [
+            {
+                bidder: 'viant',
+                params: {
+                    placementId: '23469191',
+                    publisherId: '12345'
+                },
+                ortb2Imp: {
+                    pmp: {
+                        private_auction: 1,
+                        deals: [
+                            {
+                                id: '1234567',
+                                at: 3,
+                                bidfloor: 25,
+                                bidfloorcur: 'USD',
+                                ext: {
+                                    must_bid: 1,
+                                    private_auction: 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        code: 'ad-div-728x90',
+        mediaTypes: {
+            banner: {
+                sizes: [[728, 90]]
+            }
+        },
+        bids: [
+            {
+                bidder: 'viant',
+                params: {
+                    placementId: '23469191',
+                    publisherId: '12345'
+                },
+                ortb2Imp: {
+                    pmp: {
+                        private_auction: 1,
+                        deals: [
+                            {
+                                id: '1234567',
+                                at: 3,
+                                bidfloor: 25,
+                                bidfloorcur: 'USD',
+                                ext: {
+                                    must_bid: 1,
+                                    private_auction: 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        code: 'ad-div-300x600',
+        mediaTypes: {
+            banner: {
+                sizes: [[300, 600]]
+            }
+        },
+        bids: [
+            {
+                bidder: 'viant',
+                params: {
+                    placementId: '23469191',
+                    publisherId: '12345'
+                },
+                ortb2Imp: {
+                    pmp: {
+                        private_auction: 1,
+                        deals: [
+                            {
+                                id: '1234567',
+                                at: 3,
+                                bidfloor: 25,
+                                bidfloorcur: 'USD',
+                                ext: {
+                                    must_bid: 1,
+                                    private_auction: 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
     }
-    // {
-    //     code: 'ad-div-160x600',
-    //     mediaTypes: {
-    //         banner: {
-    //             sizes: [[160, 600]]
-    //         }
-    //     },
-    //     bids: [
-    //         {
-    //             bidder: 'viant',
-    //             params: {
-    //                 placementId: '23469191',
-    //                 publisherId: '12345'
-    //             },
-    //             ortb2Imp: {
-    //                 pmp: {
-    //                     private_auction: 0,
-    //                     deals: [
-    //                         {
-    //                             id: '1234567',
-    //                             at: 3,
-    //                             bidfloor: 25,
-    //                             bidfloorcur: 'USD',
-    //                             ext: {
-    //                                 must_bid: 1,
-    //                                 private_auction: 1
-    //                             }
-    //                         }
-    //                     ]
-    //                 }
-    //             }
-    //         }
-    //     ]
-    // },
-    // {
-    //     code: 'ad-div-728x90',
-    //     mediaTypes: {
-    //         banner: {
-    //             sizes: [[728, 90]]
-    //         }
-    //     },
-    //     bids: [
-    //         {
-    //             bidder: 'viant',
-    //             params: {
-    //                 placementId: '23469191',
-    //                 publisherId: '12345'
-    //             },
-    //             ortb2Imp: {
-    //                 pmp: {
-    //                     private_auction: 0,
-    //                     deals: [
-    //                         {
-    //                             id: '1234567',
-    //                             at: 3,
-    //                             bidfloor: 25,
-    //                             bidfloorcur: 'USD',
-    //                             ext: {
-    //                                 must_bid: 1,
-    //                                 private_auction: 1
-    //                             }
-    //                         }
-    //                     ]
-    //                 }
-    //             }
-    //         }
-    //     ]
-    // },
-    // {
-    //     code: 'ad-div-300x600',
-    //     mediaTypes: {
-    //         banner: {
-    //             sizes: [[300, 600]]
-    //         }
-    //     },
-    //     bids: [
-    //         {
-    //             bidder: 'viant',
-    //             params: {
-    //                 placementId: '23469191',
-    //                 publisherId: '12345'
-    //             },
-    //             ortb2Imp: {
-    //                 pmp: {
-    //                     private_auction: 0,
-    //                     deals: [
-    //                         {
-    //                             id: '1234567',
-    //                             at: 3,
-    //                             bidfloor: 25,
-    //                             bidfloorcur: 'USD',
-    //                             ext: {
-    //                                 must_bid: 1,
-    //                                 private_auction: 1
-    //                             }
-    //                         }
-    //                     ]
-    //                 }
-    //             }
-    //         }
-    //     ]
-    // }
 ];
+
+// ** CHANGED: Ensure pbjs object is initialized correctly **
+var pbjs = pbjs || {};
+pbjs.que = pbjs.que || [];
 
 pbjs.que.push(function() {
     pbjs.addAdUnits(adUnits);
@@ -444,20 +448,28 @@ pbjs.que.push(function() {
         }
     };
 
-    pbjs.requestBids({
-        bidsBackHandler: function(bidResponses) {
-            adUnits.forEach(unit => {
-                let winningBid = pbjs.getHighestCpmBids(unit.code)[0];
-                if (winningBid) {
-                    let adDiv = document.getElementById(unit.code);
-                    if (adDiv) {
-                        adDiv.innerHTML = '<!-- Creative HTML here -->';
-                        console.log('Ad Bid Won for: ' + unit.code + ', CPM: ' + winningBid.cpm);
+    pbjs.que.push(function() {
+        pbjs.addAdUnits(adUnits);
+        pbjs.requestBids({
+            timeout: 1000,
+            bidsBackHandler: function() {
+                adUnits.forEach(unit => {
+                    var iframe = document.getElementById(unit.code + '-iframe'); // ** CHANGED: Referenced correct iframe ID **
+                    var iframeDoc = iframe.contentWindow.document;
+                    var adServerTargeting = pbjs.getAdserverTargetingForAdUnitCode(unit.code); // ** CHANGED: Referenced correct ad unit code **
+    
+                    // If any bidders return any creatives
+                    if (adServerTargeting && adServerTargeting['hb_adid']) {
+                        pbjs.renderAd(iframeDoc, adServerTargeting['hb_adid']);
+                        console.log('Ad rendered for ' + unit.code);
+                    } else {
+                        iframe.width = unit.mediaTypes.banner.sizes[0][0];
+                        iframe.height = unit.mediaTypes.banner.sizes[0][1];
+                        iframeDoc.write('<head></head><body>No ad available</body>');
+                        iframeDoc.close();
+                        console.log('No ad available for ' + unit.code);
                     }
-                } else {
-                    console.log(`No winning bid for ${unit.code}`);
-                }
-            });
-        }
+                });
+            }
+        });
     });
-});
