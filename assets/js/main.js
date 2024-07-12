@@ -386,7 +386,7 @@ var adUnits = [
     }
 ];
 
-// ** CHANGED: Ensure pbjs object is initialized correctly **
+// Ensure pbjs object is initialized correctly
 var pbjs = pbjs || {};
 pbjs.que = pbjs.que || [];
 
@@ -446,30 +446,31 @@ pbjs.que.push(function() {
                 ]
             }
         }
-    };
-
-    pbjs.que.push(function() {
-        pbjs.addAdUnits(adUnits);
-        pbjs.requestBids({
-            timeout: 1000,
-            bidsBackHandler: function() {
-                adUnits.forEach(unit => {
-                    var iframe = document.getElementById(unit.code + '-iframe'); // ** CHANGED: Referenced correct iframe ID **
-                    var iframeDoc = iframe.contentWindow.document;
-                    var adServerTargeting = pbjs.getAdserverTargetingForAdUnitCode(unit.code); // ** CHANGED: Referenced correct ad unit code **
-    
-                    // If any bidders return any creatives
-                    if (adServerTargeting && adServerTargeting['hb_adid']) {
-                        pbjs.renderAd(iframeDoc, adServerTargeting['hb_adid']);
-                        console.log('Ad rendered for ' + unit.code);
-                    } else {
-                        iframe.width = unit.mediaTypes.banner.sizes[0][0];
-                        iframe.height = unit.mediaTypes.banner.sizes[0][1];
-                        iframeDoc.write('<head></head><body>No ad available</body>');
-                        iframeDoc.close();
-                        console.log('No ad available for ' + unit.code);
-                    }
-                });
-            }
-        });
     });
+
+    pbjs.requestBids({
+        timeout: 1000,
+        bidsBackHandler: function() {
+            adUnits.forEach(unit => {
+                var iframe = document.getElementById(unit.code + '-iframe'); // Referenced correct iframe ID
+                var iframeDoc = iframe.contentWindow.document;
+                var adServerTargeting = pbjs.getAdserverTargetingForAdUnitCode(unit.code); // Referenced correct ad unit code
+
+                // If any bidders return any creatives
+                if (adServerTargeting && adServerTargeting['hb_adid']) {
+                    pbjs.renderAd(iframeDoc, adServerTargeting['hb_adid']);
+                    console.log('Ad rendered for ' + unit.code);
+                } else {
+                    iframe.width = unit.mediaTypes.banner.sizes[0][0];
+                    iframe.height = unit.mediaTypes.banner.sizes[0][1];
+                    iframeDoc.write('<head></head><body>No ad available</body>');
+                    iframeDoc.close();
+                    console.log('No ad available for ' + unit.code);
+                }
+            });
+        }
+    });
+
+// Remove unnecessary closing curly braces
+// });
+
