@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!--==================== UNICONS ====================-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    
+    <!--==================== SWIPER CSS====================-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--==================== CSS ====================-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <script src="assets/js/prebid.js" defer></script>
+
+    <!-- <script src="assets/js/Prebid.js/build/dist/prebid.js"defer></script> -->
+    <script src="assets/js/main.js" defer></script>
+    <title>Viant Inc. Testing Page</title>
+
+    <!-- <script>
+        // Reload the page every 5 seconds
+        setTimeout(function(){
+            location.reload();
+        }, 5000);
+    </script> -->
+</head>
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="assets/img/logo-light.png" alt="Viant Inc. Testing Page Logo" class="nav__logo-img" id="logo-img">
+            </a>
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== PORTFOLIO ====================-->
+        <section class="portfolio section" id="portfolio">
+            <h2 class="section__title">Prebid Test Page</h2>
+            <span class="section__subtitle">Maintained by Technical Platform Team</span>
+
+            <div class="portfolio__container container swiper-container">
+                <div class="swiper-wrapper">
+                    <!--=============== PORTFOLIO 1 (300x250) ===============-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <div id="ad-div-300x250" class="ad-container" style="width: 300px; height: 250px;">
+                            <h3 class="portfolio__title">300x250 Ad Placement</h3>
+                        </div>
+                    </div>
+
+                    <!--=============== PORTFOLIO 2 (160x600) ===============-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <div id="ad-div-160x600" class="ad-container" style="width: 160px; height: 600px;">
+                            <h3 class="portfolio__title">160x600 Ad Placement</h3>
+                        </div>
+                    </div>
+
+                    <!--=============== PORTFOLIO 3 (728x90) ===============-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <div id="ad-div-728x90" class="ad-container" style="width: 728px; height: 90px;">
+                            <h3 class="portfolio__title">728x90 Ad Placement</h3>
+                        </div>
+                    </div>
+
+                    <!--=============== PORTFOLIO 4 (300x600) ===============-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <div id="ad-div-300x600" class="ad-container" style="width: 300px; height: 600px;">
+                            <h3 class="portfolio__title">300x600 Ad Placement</h3>
+                        </div>
+                    </div>
+                </div> <!-- Close portfolio__container -->
+
+                <div class="swiper-button-next">
+                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer">
+            <p class="footer__copy">&#169; Viant Inc. All right reserved</p>
+        </footer>
+
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrollup" id="scroll-top">
+            <i class="uil uil-arrow-up scrollup__icon"></i>
+        </a>
+
+        <!--==================== SWIPER JS ====================-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!-- Prebid.js Script -->
+    
+
+        <!--==================== MAIN JS ====================-->
+    
+    </body>
+</html>
