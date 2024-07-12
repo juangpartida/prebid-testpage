@@ -17,9 +17,6 @@ function renderAdInIframe(adDivId, adId) {
     }
 }
 
-
-
-
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
@@ -149,23 +146,6 @@ let swiperTestimonial = new Swiper('.testimonial__container', {
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]');
 
-// function scrollActive(){
-//     const scrollY = window.pageYOffset;
-
-//     sections.forEach(current =>{
-//         const sectionHeight = current.offsetHeight;
-//         const sectionTop = current.offsetTop - 50;
-//         let sectionId = current.getAttribute('id');
-
-//         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-//             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link');
-//         }else{
-//             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link');
-//         }
-//     });
-// }
-// window.addEventListener('scroll', scrollActive);
-
 function scrollActive() {
     const scrollY = window.pageYOffset;
 
@@ -189,7 +169,6 @@ function scrollActive() {
     });
 }
 window.addEventListener('scroll', scrollActive);
-
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/ 
 function scrollHeader(){
@@ -282,109 +261,109 @@ var adUnits = [
             }
         ]
     },
-    {
-        code: 'ad-div-160x600',
-        mediaTypes: {
-            banner: {
-                sizes: [[160, 600]]
-            }
-        },
-        bids: [
-            {
-                bidder: 'viant',
-                params: {
-                    placementId: '23469191',
-                    publisherId: '12345'
-                },
-                ortb2Imp: {
-                    pmp: {
-                        private_auction: 1,
-                        deals: [
-                            {
-                                id: '1234567',
-                                at: 3,
-                                bidfloor: 25,
-                                bidfloorcur: 'USD',
-                                ext: {
-                                    must_bid: 1,
-                                    private_auction: 1
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    {
-        code: 'ad-div-728x90',
-        mediaTypes: {
-            banner: {
-                sizes: [[728, 90]]
-            }
-        },
-        bids: [
-            {
-                bidder: 'viant',
-                params: {
-                    placementId: '23469191',
-                    publisherId: '12345'
-                },
-                ortb2Imp: {
-                    pmp: {
-                        private_auction: 1,
-                        deals: [
-                            {
-                                id: '1234567',
-                                at: 3,
-                                bidfloor: 25,
-                                bidfloorcur: 'USD',
-                                ext: {
-                                    must_bid: 1,
-                                    private_auction: 1
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    {
-        code: 'ad-div-300x600',
-        mediaTypes: {
-            banner: {
-                sizes: [[300, 600]]
-            }
-        },
-        bids: [
-            {
-                bidder: 'viant',
-                params: {
-                    placementId: '23469191',
-                    publisherId: '12345'
-                },
-                ortb2Imp: {
-                    pmp: {
-                        private_auction: 1,
-                        deals: [
-                            {
-                                id: '1234567',
-                                at: 3,
-                                bidfloor: 25,
-                                bidfloorcur: 'USD',
-                                ext: {
-                                    must_bid: 1,
-                                    private_auction: 1
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    }
-];
+    // {
+    //     code: 'ad-div-160x600',
+    //     mediaTypes: {
+    //         banner: {
+    //             sizes: [[160, 600]]
+    //         }
+    //     },
+    //     bids: [
+    //         {
+    //             bidder: 'viant',
+    //             params: {
+    //                 placementId: '23469191',
+    //                 publisherId: '12345'
+    //             },
+    //             ortb2Imp: {
+    //                 pmp: {
+    //                     private_auction: 1,
+    //                     deals: [
+    //                         {
+    //                             id: '1234567',
+    //                             at: 3,
+    //                             bidfloor: 25,
+    //                             bidfloorcur: 'USD',
+    //                             ext: {
+    //                                 must_bid: 1,
+    //                                 private_auction: 1
+    //                             }
+    //                         }
+    //                     ]
+    //                 }
+    //             }
+    //         }
+    //     ]
+    // },
+    // {
+    //     code: 'ad-div-728x90',
+    //     mediaTypes: {
+    //         banner: {
+    //             sizes: [[728, 90]]
+    //         }
+    //     },
+    //     bids: [
+    //         {
+    //             bidder: 'viant',
+    //             params: {
+    //                 placementId: '23469191',
+    //                 publisherId: '12345'
+    //             },
+    //             ortb2Imp: {
+    //                 pmp: {
+    //                     private_auction: 1,
+    //                     deals: [
+    //                         {
+    //                             id: '1234567',
+    //                             at: 3,
+    //                             bidfloor: 25,
+    //                             bidfloorcur: 'USD',
+    //                             ext: {
+    //                                 must_bid: 1,
+    //                                 private_auction: 1
+    //                             }
+    //                         }
+    //                     ]
+    //                 }
+    //             }
+    //         }
+    //     ]
+    // },
+    // {
+//         code: 'ad-div-300x600',
+//         mediaTypes: {
+//             banner: {
+//                 sizes: [[300, 600]]
+//             }
+//         },
+//         bids: [
+//             {
+//                 bidder: 'viant',
+//                 params: {
+//                     placementId: '23469191',
+//                     publisherId: '12345'
+//                 },
+//                 ortb2Imp: {
+//                     pmp: {
+//                         private_auction: 1,
+//                         deals: [
+//                             {
+//                                 id: '1234567',
+//                                 at: 3,
+//                                 bidfloor: 25,
+//                                 bidfloorcur: 'USD',
+//                                 ext: {
+//                                     must_bid: 1,
+//                                     private_auction: 1
+//                                 }
+//                             }
+//                         ]
+//                     }
+//                 }
+//             }
+//         ]
+//     }
+// ];
 
 // Ensure pbjs object is initialized correctly
 var pbjs = pbjs || {};
@@ -446,7 +425,7 @@ pbjs.que.push(function() {
                 ]
             }
         }
-    });
+    }
 
     pbjs.requestBids({
         timeout: 1000,
@@ -470,7 +449,4 @@ pbjs.que.push(function() {
             });
         }
     });
-
-// Remove unnecessary closing curly braces
-// });
-
+});
